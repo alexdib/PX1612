@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+<title>SoNM QuestionBank Prototype</title>
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.css">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<link type="text/css" rel="stylesheet" href="css/colors/red.css" />
+<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+</head>
+<body>
+
+<div data-role="page" id="view-question" class="secondarypage" data-theme="b">
+
+    <div data-role="header" data-position="fixed">
+        <div class="nav_left_button"><a href="#" class="nav-toggle"><span></span></a></div>
+        <div class="nav_center_logo">Question</div>
+        <div class="nav_right_button"><a href="#right-panel"><img src="images/icons/white/user.png" alt="" title="" /></a></div>
+        <div class="clear"></div>
+    </div>
+
+    <div role="main" class="ui-content">
+        <div class="pages_maincontent">
+
+            <div class="page_content">
+
+                <a href="#" class="ui-btn ui-corner-all ui-mini ui-btn-icon-left ui-icon-check">Approve</a>
+                <a href="#" class="ui-btn ui-corner-all ui-mini ui-btn-icon-left ui-icon-edit">Edit</a>
+                <a href="#" class="ui-btn ui-corner-all ui-mini ui-btn-icon-left ui-icon-delete">Delete</a>
+
+                <h3 class="ui-bar ui-bar-a ui-corner-all" style="background-color: #991936; color: #fff;">
+                    What is a project proposal?
+                </h3>
+
+                <div class="ui-body ui-body-a ui-corner-all">
+                    <h3 style="color: green;">Approved Response:</h3>
+                    <h3>Veronica</h3>
+                    A project proposal is....
+                    <ul id="photoslist" class="photo_gallery_13">
+                        <li><a rel="gallery-1" href="images/photos/photo1.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo1.jpg" alt="image"/></a></li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+
+                <div class="ui-field-contain">
+
+                    <h3 style="color: #991936">Responses:</h3>
+
+                    <div class="ui-field-contain">
+                        <h3>Veronica</h3>
+                        A project proposal is....
+                        <ul id="photoslist" class="photo_gallery_13">
+                            <li><a rel="gallery-1" href="images/photos/photo1.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo1.jpg" alt="image"/></a></li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <h3>Justin</h3>
+                        A project proposal is....<br>
+                        <a href="#">http://google.com</a>
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <h3>Alex</h3>
+                        A project proposal is....
+                        <ul id="photoslist2" class="photo_gallery_13">
+                            <li><a rel="gallery-1" href="images/photos/photo1.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo1.jpg" alt="image"/></a></li>
+                            <li><a rel="gallery-1" href="images/photos/photo2.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo2.jpg" alt="image"/></a></li>
+                            <li><a rel="gallery-1" href="images/photos/photo3.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo3.jpg" alt="image"/></a></li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <h3>Mais</h3>
+                        A project proposal is....<br>
+                        <a href="#" class="ui-btn ui-btn-inline ui-icon-audio ui-btn-icon-left">Play</a>
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <h3>Tim</h3>
+                        A project proposal is....
+                    </div>
+
+                    <div class="ui-field-contain">
+                        <h3>Bruce</h3>
+                        A project proposal is....
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div data-role="footer" style="margin-top: 10%">
+        <a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-back" data-rel="back">Back</a>
+        <a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-u">Top</a>
+    </div>
+
+    <div data-role="panel" id="left-panel" data-display="reveal" data-position="left">
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" data-transition="slidefade"><img src="images/icons/white/home.png" alt="" title="" /><span>Home</span></a></li>
+                <li><a href="search.html" data-transition="slidefade"><img src="images/icons/white/search.png" alt="" title="" /><span>Search</span></a></li>
+                <li><a href="questions.html" data-transition="slidefade"><img src="images/icons/white/question.png" alt="" title="" /><span>Questions</span></a></li>
+                <li><a href="photos.html" data-transition="slidefade"><img src="images/icons/white/photos.png" alt="" title="" /><span>Photos</span></a></li>
+                <li><a href="login.html" data-transition="slidedown"><img src="images/icons/white/lock.png" alt="" title="" /><span>Login</span></a></li>
+                <li><a href="admin.html" data-transition="slidedown"><img src="images/icons/white/settings.png" alt="" title="" /><span>Admin</span></a></li>
+                <li><a href="contact.html" data-transition="slidefade"><img src="images/icons/white/contact.png" alt="" title="" /><span>Contact</span></a></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div data-role="panel" id="right-panel" data-display="reveal" data-position="right">
+
+        <div class="user_login_info">
+
+            <div class="user_thumb_container">
+                <img src="images/profile.jpg" alt="" title="" />
+                <div class="user_thumb">
+                    <img src="images/author.jpg" alt="" title="" />
+                </div>
+            </div>
+
+            <div class="user_details">
+                <p>Mais M. Fatayer</p>
+            </div>
+
+            <nav class="user-nav">
+                <ul>
+                    <li><a href="index.html"><img src="images/icons/white/settings.png" alt="" title="" /><span>Settings</span></a></li>
+                    <li><a href="index.html"><img src="images/icons/white/briefcase.png" alt="" title="" /><span>Account</span></a></li>
+                    <li><a href="index.html"><img src="images/icons/white/lock.png" alt="" title="" /><span>Logout</span></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="close_loginpopup_button"><a href="#" data-rel="close"><img src="images/icons/white/menu_close.png" alt="" title="" /></a></div>
+
+    </div>
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/email.js"></script>
+<script type="text/javascript" src="js/jquery.swipebox.js"></script>
+<script src="js/jquery.mobile-custom.js"></script>
+</body>
+</html>
+
+              
