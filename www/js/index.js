@@ -33,10 +33,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        if (navigator.connection.type == Connection.NONE) {
-            navigator.notification.alert('An internet connection is required to continue');
-        } else {
-            window.location="http://www.dibsystems.com/ks1612";
-        }
+        navigator.splashscreen.hide();
     }
 };
