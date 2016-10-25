@@ -11,7 +11,7 @@ $(document).on('swipeleft swiperight', function (e) {
 		} 
 });
 
-$(document).on("pageshow", function () {  			   
+$(document).on("pageshow", function () {
 
 	$( ".nav-toggle" ).click(function() {
 	   $.mobile.activePage.find( "#left-panel" ).panel( "open" );
@@ -24,29 +24,14 @@ $(document).on("pageshow", function () {
     $(document).on("panelclose", "#left-panel", function ( e ) {
         $(".nav-toggle").removeClass("navtoggleon");
     });
-	 
+
 });
 
-	
+
 $( document ).delegate("#photos", "pagecreate", function() {
   $(".swipebox").swipebox();
 });
 
-$( document ).delegate("#blog", "pagecreate", function() {
-		$(".posts li").hide();	
-		size_li = $(".posts li").size();
-		x=4;
-		$('.posts li:lt('+x+')').show();
-		$('#loadMore').click(function () {
-			x= (x+2 <= size_li) ? x+2 : size_li;
-			$('.posts li:lt('+x+')').show();
-			if(x == size_li){
-				$('#loadMore').hide();
-				$('#showLess').show();
-			}
-			$("html, body").animate({ scrollTop: $(document).height() }, 1000);
-		});
-});
 
 $.widget( "ui.tabs", $.ui.tabs, {
 
@@ -74,6 +59,7 @@ _createWidget: function( options, element ) {
 
 
 $( document ).delegate("#contact", "pagecreate", function() {
+
   		$("#ContactForm").validate({
 		submitHandler: function(form) {
 		ajaxContact(form);
@@ -82,4 +68,55 @@ $( document ).delegate("#contact", "pagecreate", function() {
 		});
 });
 
+
+$( document ).delegate("#homepage", "pageshow", function() {
+    var session = JSON.parse(window.localStorage.getItem("sonm-session"));
+
+    if (session) {
+        $("#default_menu").hide();
+        $("#student_menu").show();
+        if (session.userType == "staff") {
+            $("#staff_menu").show();
+        } else {
+            $("#staff_menu").hide();
+        }
+        $("#login_menu").hide();
+        $("#logout_menu").show();
+    } else {
+        $("#default_menu").show();
+        $("#student_menu").hide();
+        $("#staff_menu").hide();
+        $("#login_menu").show();
+        $("#logout_menu").hide();
+    }
+
+    /* get homepage statistics */
+    $.ajax({
+        type: 'POST',
+        url: SoNM.Settings.helperUrl,
+        data: "function=homepage",
+        success: function (resp) {
+            var responsedata = $.parseJSON(resp);
+            $("#usersCount").text(responsedata.users);
+            $("#questionsCount").text(responsedata.questions);
+            $("#answersCount").text(responsedata.answers);
+        }
+    });
+
+
+    // Wire logout button to destroy session
+    $( ".logout" ).click(function() {
+        localStorage.clear();
+        location.reload();
+    });
+
+});
+
+/* Wire sign in button */
+$(document).delegate("#page-signin", "pagebeforecreate", function () {
+    app.signInController.init();
+    app.signInController.$btnSubmit.off("tap").on("tap", function () {
+        app.signInController.onSignInCommand();
+    });
+});
 

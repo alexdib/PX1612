@@ -16,6 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var SoNM = SoNM || {};
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -36,3 +39,35 @@ var app = {
         navigator.splashscreen.hide();
     }
 };
+
+app.initialize();
+app.signInController = new SoNM.SignInController();
+
+$(document).bind("mobileinit", function () {
+    $.mobile.ajaxEnabled = false;
+    $.mobile.page.prototype.options.domCache = false;
+});
+
+$(document).on("pagecontainerbeforechange", function (event, ui) {
+    if (typeof ui.toPage !== "object") return;
+    switch (ui.toPage.attr('id')) {
+        case "homepage":
+            if (!ui.prevPage) {
+                // var session = SoNM.Session.getInstance().get();
+            }
+            break;
+    }
+});
+
+
+$(document).on("pagecontainerbeforeshow", function (event, ui) {
+    if (typeof ui.toPage == "object") {
+        switch (ui.toPage.attr("id")) {
+            case "page-signin":
+                // Reset signin form.
+                app.signInController.resetSignInForm();
+                break;
+        }
+    }
+
+});

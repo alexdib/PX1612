@@ -1,0 +1,14 @@
+var SoNM = SoNM || {};
+SoNM.ApiMessages = SoNM.ApiMessages || {};
+SoNM.ApiMessages.EMAIL_NOT_FOUND = 1;
+SoNM.ApiMessages.INVALID_PWD = 2;
+SoNM.ApiMessages.DB_ERROR = 3;
+SoNM.ApiMessages.NOT_FOUND = 4;
+SoNM.ApiMessages.EMAIL_ALREADY_EXISTS = 5;
+SoNM.ApiMessages.COULD_NOT_CREATE_USER = 6;
+SoNM.ApiMessages.PASSWORD_RESET_EXPIRED = 7;
+SoNM.ApiMessages.PASSWORD_RESET_HASH_MISMATCH = 8;
+SoNM.ApiMessages.PASSWORD_RESET_EMAIL_MISMATCH = 9;
+SoNM.ApiMessages.COULD_NOT_RESET_PASSWORD = 10;
+SoNM.ApiMessages.PASSWORD_CONFIRM_MISMATCH = 11;
+SoNM.ApiMessages.SESSION_NOT_FOUND = 12;

@@ -14,28 +14,30 @@
 </head>
 <body>
 
-<div data-role="page" id="login" class="secondarypage" data-theme="b">
+<div data-role="page" id="page-signin" class="secondarypage" data-theme="b">
 
 
     <div role="main" class="ui-content">
-    
+
             <div class="content-block-login">
-            
+
                     	<div class="form_logo">LOGIN</div>
-                        
+                        <div id="ctn-err" class="bi-invisible" style="text-align: center; color: red"></div>
                         <div class="loginform">
                         
-                            <form id="LoginForm" method="post">
-                            <input type="text" name="Username" value="" class="form_input required" placeholder="username" data-role="none" />
-                            <input type="password" name="Password" value="" class="form_input required" placeholder="password" data-role="none" />
-                            <div class="forgot_pass"><a href="forgotpass.html" data-transition="slidedown">Forgot Password?</a></div>
-                            <input type="submit" name="submit" class="form_submit" id="submit" data-role="none" value="SIGN IN" />
-                            </form>
-                            
+                            <input type="text" name="txt-email-address" id="txt-email-address" value="" class="form_input required" placeholder="username" data-role="none" />
+                            <input type="password" name="txt-password" id="txt-password" value="" class="form_input required" placeholder="password" data-role="none" />
+                                <fieldset data-role="controlgroup">
+                                    <label><input type="checkbox" name="chk-keep-signed-in" id="chk-keep-signed-in"> Keep me signed in</label>
+                                </fieldset>
+                            <a href="#dlg-invalid-credentials" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all mc-top-margin-1-5">Submit</a>
+
+                            <!--
                             <div class="signup_bottom">
                             <p>Don't have an account?</p>
                             <a href="register.html" data-transition="slidedown">SIGN UP</a>
                             </div>
+                            -->
                         
                         </div>
                     
@@ -48,6 +50,11 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery.mobile-1.4.5.min.js"></script>
 <script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/api-messages.js"></script>
+<script type="text/javascript" src="js/settings.js"></script>
+<script src="js/session.js"></script>
+<script src="js/signin-controller.js"></script>
+<script src="js/index.js"></script>
 <script type="text/javascript" src="js/email.js"></script>
 <script type="text/javascript" src="js/jquery.swipebox.js"></script>
 <script src="js/jquery.mobile-custom.js"></script>

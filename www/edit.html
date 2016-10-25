@@ -16,101 +16,98 @@
 </head>
 <body>
 
-<div data-role="page" id="view-question" class="secondarypage" data-theme="b">
+<div data-role="page" id="admin" class="secondarypage" data-theme="b">
 
     <div data-role="header" data-position="fixed">
         <div class="nav_left_button"><a href="#" class="nav-toggle"><span></span></a></div>
-        <div class="nav_center_logo">Question</div>
+        <div class="nav_center_logo">Question/Answer Management</div>
         <div class="nav_right_button"><a href="#right-panel"><img src="images/icons/white/user.png" alt="" title="" /></a></div>
         <div class="clear"></div>
     </div>
 
     <div role="main" class="ui-content">
+       <div class="pages_maincontent">
+           <h2 class="page_title">Question/Answer Management</h2>
 
-        <div class="pages_maincontent">
-            <div class="page_content">
+              <div class="page_content">
+                  <div class="loginform">
+                  <div class="ui-field-contain">
+                      <h3>Select Unit</h3>
+                      <select name="unit-select" id="unit-select" onchange="getQuestions()">
+                          <option selected disabled value="-1">Please select</option>
+                      </select>
+                  </div>
 
-                <h3 class="ui-bar ui-bar-a ui-corner-all" style="background-color: #991936; color: #fff;">
-                    <span id="questionlabel"></span>
-                </h3>
+                  <div class="ui-field-contain">
+                      <h3>Select Question</h3>
+                      <select name="question-select" id="question-select" onchange="getAnswers(); getQuestion();" >
+                          <option selected disabled value="-1">Please select</option>
+                      </select>
+                  </div>
 
+                  <div class="ui-field-contain">
+                      <h3>Select Answer</h3>
+                      <select name="answer-select" id="answer-select" onchange="getAnswer();">
+                          <option selected disabled value="-1">Please select</option>
+                      </select>
+                  </div>
 
-                <div name="star-rating" id="star-rating">
-                    <h3>Rating:</h3>
-                </div>
+                  <hr>
+                  <div class="ui-field-contain">
+                      <h4>Question</h4>
+                      <input name="questionid" id="questionid" type="text" style="display: none;">
+                      <input name="question" id="question" type="text">
+                      <h4>Approval</h4>
+                      <select name="question-approved-select" id="question-approved-select">
+                          <option value="0">No</option>
+                          <option value="1">Yes</option>
+                      </select>
+                      <h4>Rating</h4>
+                      <select name="question-rating-select" id="question-rating-select">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                      </select>
+                  </div>
+                  <input type="submit" name="update-question" class="form_submit" id="update-question" data-role="none" value="UPDATE QUESTION" />
 
-                <div name="date" id="date">
-                    <h3>Date Created:</h3>
-                </div>
-                <br>
-
-                <a href="" rel="external" class="answerquestion ui-btn ui-corner-all ui-mini ui-btn-icon-left ui-icon-check">Answer question</a>
-
-                <div id="approvedresponsediv" class="ui-body ui-body-a ui-corner-all" style="display: none;">
-                    <h3 style="color: green;">Approved Response:</h3>
-
-
-                </div>
-
-                <div id="responsesdiv" class="ui-field-contain">
-                    <h3 style="color: #991936">Responses:</h3>
-
-                    <!--
-                    <div class="ui-field-contain">
-                        <h3>Veronica</h3>
-                        A project proposal is....
-                        <ul id="photoslist" class="photo_gallery_13">
-                            <li><a rel="gallery-1" href="images/photos/photo1.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo1.jpg" alt="image"/></a></li>
-                            <div class="clear"></div>
-                        </ul>
-                    </div>
-
-                    <div class="ui-field-contain">
-                        <h3>Justin</h3>
-                        A project proposal is....<br>
-                        <a href="#">http://google.com</a>
-                    </div>
-
-                    <div class="ui-field-contain">
-                        <h3>Alex</h3>
-                        A project proposal is....
-                        <ul id="photoslist2" class="photo_gallery_13">
-                            <li><a rel="gallery-1" href="images/photos/photo1.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo1.jpg" alt="image"/></a></li>
-                            <li><a rel="gallery-1" href="images/photos/photo2.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo2.jpg" alt="image"/></a></li>
-                            <li><a rel="gallery-1" href="images/photos/photo3.jpg" title="Photo title" class="swipebox"><img src="images/photos/photo3.jpg" alt="image"/></a></li>
-                            <div class="clear"></div>
-                        </ul>
-                    </div>
-
-                    <div class="ui-field-contain">
-                        <h3>Mais</h3>
-                        A project proposal is....<br>
-                        <a href="#" class="ui-btn ui-btn-inline ui-icon-audio ui-btn-icon-left">Play</a>
-                    </div>
-
-                    <div class="ui-field-contain">
-                        <h3>Tim</h3>
-                        A project proposal is....
-                    </div>
-
-                    <div class="ui-field-contain">
-                        <h3>Bruce</h3>
-                        A project proposal is....
-                    </div>
-                    -->
-
-                </div>
+                  <hr>
+                  <div class="ui-field-contain">
+                      <h4>Answer</h4>
+                      <input name="answerid" id="answerid" type="text" style="display: none;">
+                      <input name="answer" id="answer" type="text">
+                      <h4>Approval</h4>
+                      <select name="answer-approved-select" id="answer-approved-select">
+                          <option value="0">No</option>
+                          <option value="1">Yes</option>
+                      </select>
+                      <h4>Rating</h4>
+                      <select name="answer-rating-select" id="answer-rating-select">
+                          <option value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                      </select>
+                  </div>
+                  <input type="submit" name="update-answer" class="form_submit" id="update-answer" data-role="none" value="UPDATE ANSWER" />
 
 
+                  <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="a" data-dismissible="true" style="max-width:400px;">
+                      <div data-role="header" data-theme="a">
+                          <h1>Success</h1> </div>
+                      <div role="main" class="ui-content" style="padding: 20px">
+                          <h3 class="ui-title">Updated successfully!</h3>
+                          <br> <a href="edit.html" rel="external" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a> </div>
+                  </div>
+                  </div>
+              </div>
+      </div>
 
-            </div>
-        </div>
-
-    </div>
-
-    <div data-role="footer" style="margin-top: 10%">
-        <a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-back" data-rel="back">Back</a>
-        <a href="#" class="top ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-u">Top</a>
     </div>
 
     <div data-role="panel" id="left-panel" data-display="reveal" data-position="left">
@@ -170,7 +167,7 @@
 
     <script type="text/javascript" src="js/api-messages.js"></script>
     <script type="text/javascript" src="js/settings.js"></script>
-    <script type="text/javascript" src="js/viewquestion.js"></script>
+    <script type="text/javascript" src="js/edit.js"></script>
 
 </div>
 <script src="js/jquery.validate.min.js" type="text/javascript"></script>

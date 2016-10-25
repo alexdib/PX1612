@@ -60,6 +60,22 @@
     right: 0.4em;
 }
 
+
+.bi-invalid-input {
+    background-color:#fffacd!important;
+}
+.bi-invisible {
+    display:none;
+}
+
+.bi-ctn-err {
+    background-color:#ffe1cd;
+    padding:0 .5em;
+    margin-bottom:.5em;
+    border: 1px solid #e9cfbd;
+    border-radius:3px 3px;
+}
+
 /*===============================================*/
 /* 1. RESET		 						 */
 /*===============================================*/
