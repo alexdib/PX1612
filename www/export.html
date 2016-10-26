@@ -16,18 +16,6 @@
 </head>
 <body>
 
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function () {
-            $.getJSON("./php/GetUnits.php", success = function(data){
-                var options = "";
-                for(var i=0; i < data.length; i++){
-                    options += '<option value ="' + data[i]['id'] + '">' +  data[i]['id'] + ' - ' + data[i]['unit'] + '</option>';
-                }
-                $("#selectUnit").append(options);
-            });
-        });
-    </script>
-
     <div data-role="page" id="export" class="secondarypage" data-theme="b">
         <div data-role="header" data-position="fixed">
             <div class="nav_left_button"><a href="#" class="nav-toggle"><span></span></a></div>

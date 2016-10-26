@@ -23,6 +23,21 @@ if (session) {
         }
     });
 
+
+    /* get units */
+    $.ajax({
+        type: 'POST',
+        url: SoNM.Settings.helperUrl,
+        data: "function=search_getunits",
+        success: function (resp) {
+            var responsedata = $.parseJSON(resp);
+
+            for (i = 0; i < responsedata.length; i++) {
+                $('#selectUnit').append('<option value ="' + responsedata[i][0] + '">' +  responsedata[i][0] + ' - ' + responsedata[i][1] + '</option>');
+            }
+        }
+    });
+
 } else {
     $("#default_menu").show();
     $("#student_menu").hide();
