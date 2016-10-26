@@ -127,6 +127,31 @@ function getAnswer(){
     });
 }
 
+
+$( "#add-question" ).click(function() {
+
+    var unit = $('#unit-select option:selected').val();
+    var question = $('#question').val();
+    var approved = $('#question-approved-select option:selected').val();
+    var rating = $('#question-rating-select option:selected').val();
+
+    if (question != "" && approved != "" && rating != "") {
+
+        $.ajax({
+            type: 'POST',
+            url: SoNM.Settings.helperUrl,
+            data: "function=edit_addquestion" + "&user=" + session.sessionId + "&unit=" + unit + "&question=" + question + "&approved=" + approved + "&rating=" + rating,
+            success: function (resp) {
+                $("#popupDialog").popup("open");
+            }
+        });
+
+    } else {
+        alert("All fields are required!");
+    }
+});
+
+
 // Wire update button to update question to database
 $( "#update-question" ).click(function() {
 
@@ -144,6 +169,45 @@ $( "#update-question" ).click(function() {
         }
     });
 
+});
+
+
+$( "#delete-question" ).click(function() {
+    var questionid = $('#questionid').val();
+
+    $.ajax({
+        type: 'POST',
+        url: SoNM.Settings.helperUrl,
+        data: "function=edit_deletequestion" + "&questionid=" + questionid,
+        success: function (resp) {
+            $("#popupDialog").popup("open");
+        }
+    });
+
+});
+
+
+$( "#add-answer" ).click(function() {
+
+    var questionid = $('#questionid').val();
+    var answer = $('#answer').val();
+    var approved = $('#answer-approved-select option:selected').val();
+    var rating = $('#answer-rating-select option:selected').val();
+
+    if (questionid != "" && answer != "" && approved != "" && rating != "") {
+
+        $.ajax({
+            type: 'POST',
+            url: SoNM.Settings.helperUrl,
+            data: "function=edit_addanswer" + "&user=" + session.sessionId + "&questionid=" + questionid + "&answer=" + answer + "&approved=" + approved + "&rating=" + rating,
+            success: function (resp) {
+                $("#popupDialog").popup("open");
+            }
+        });
+
+    } else {
+        alert("All fields are required!");
+    }
 });
 
 // Wire update button to update question to database
@@ -164,3 +228,17 @@ $( "#update-answer" ).click(function() {
     });
 });
 
+
+$( "#delete-answer" ).click(function() {
+    var answerid = $('#answerid').val();
+
+    $.ajax({
+        type: 'POST',
+        url: SoNM.Settings.helperUrl,
+        data: "function=edit_deleteanswer" + "&id=" + answerid,
+        success: function (resp) {
+            $("#popupDialog").popup("open");
+        }
+    });
+
+});

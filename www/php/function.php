@@ -451,6 +451,17 @@ if ($function == "edit_getanswer") {
 
 }
 
+if ($function == "edit_addquestion") {
+
+    $user = substr($user, 0, 8);
+
+    $sql="INSERT INTO Questions (UserId, UnitId, Question, Tags, Approved, Rating, DateCreated) VALUES ('".$user."','".$unit."','".$question."',' ','".$approved."','".$rating."','".date("Y-m-d H:i:s")."')";
+    mysql_query($sql);
+
+    echo true;
+
+}
+
 if ($function == "edit_updatequestion") {
 
     $sql="UPDATE Questions SET Question='".$question."', Approved='".$approved."', Rating='".$rating."' WHERE QuestionId='".$questionid."'";
@@ -459,9 +470,36 @@ if ($function == "edit_updatequestion") {
     echo true;
 }
 
+if ($function == "edit_deletequestion") {
+
+    $sql="DELETE FROM Questions WHERE QuestionId='".$questionid."'";
+    mysql_query($sql);
+
+    echo true;
+}
+
+if ($function == "edit_addanswer") {
+
+    $user = substr($user, 0, 8);
+
+    $sql="INSERT INTO Answers (UserId, QuestionId, Answer, Approved, Rating, DateAnswered) VALUES ('".$user."','".$questionid."','".$answer."','".$approved."','".$rating."','".date("Y-m-d H:i:s")."')";
+    mysql_query($sql);
+
+    echo true;
+
+}
+
 if ($function == "edit_updateanswer") {
 
     $sql="UPDATE Answers SET Answer='".$answer."', Approved='".$approved."', Rating='".$rating."' WHERE AnswerId='".$id."'";
+    mysql_query($sql);
+
+    echo true;
+}
+
+if ($function == "edit_deleteanswer") {
+
+    $sql="DELETE FROM Answers WHERE AnswerId='".$id."'";
     mysql_query($sql);
 
     echo true;
